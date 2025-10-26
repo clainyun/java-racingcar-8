@@ -15,6 +15,10 @@ public class InputReader {
     }
 
     private int validateAndParseInt(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException("시도 횟수를 입력해야 합니다.");
+        }
+
         int attemptCount = Integer.parseInt(input);
         if (attemptCount < 1) {
             throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
