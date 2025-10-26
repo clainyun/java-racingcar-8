@@ -3,70 +3,71 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Application {
     public static void main(String[] args) {
         String carNamesInput = Console.readLine();
         String attemptCountInput = Console.readLine();
         int attemptCount = Integer.parseInt(attemptCountInput);
 
-        String[] carNames = carNamesInput.split(",");
-        int[] positions = new int[carNames.length]; // carNames 원소 개수만큼의 크기로 생성
+        List<Car> cars = createCars(carNamesInput);
 
         for (int i = 0; i < attemptCount; i++) {
-            playOneRound(carNames, positions);
-            printRoundResult(carNames, positions); // 실행결과 출력
+            playOneRound(cars);
+            printRoundResult(cars); // 실행결과 출력
         }
-        printWinners(carNames, positions); // 우승자 출력
+        printWinners(cars); // 우승자 출력
     }
 
-    private static void playOneRound(String[] carNames, int[] positions) {
-        for (int i = 0; i < carNames.length; i++) {
+    private static List<Car> createCars(String carNamesInput) {
+        List<Car> cars = new ArrayList<>();
+        String[] names = carNamesInput.split(",");
+        for (String name : names) {
+            cars.add(new Car(name));
+        }
+        return cars;
+    }
+
+    private static void playOneRound(List<Car> cars) {
+        for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(0, 9);
-            if (shouldMoveForward(randomValue)) { // 전진 조건을 만족하면
-                positions[i]++;
-            }
+            car.move(randomValue);
         }
     }
 
-    private static boolean shouldMoveForward(int randomValue) {
-        return randomValue >= 4;
-    }
-
-    private static void printRoundResult(String[] carNames, int[] positions) {
-        for (int i = 0; i < carNames.length; i++) { // 리팩토링 예정! (Java에서 제공하는 API 찾아보기)
-            System.out.print(carNames[i] + " : ");
-            int n = positions[i];
-            for (int j = 0; j < n; j++) {
-                System.out.print("-");
-            }
-            System.out.println();
+    private static void printRoundResult(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getDisplay());
         }
+        System.out.println();
     }
 
-    private static void printWinners(String[] carNames, int[] positions) {
-        int maxPos = findMaxPosition(positions);
-        String winnerNames = createWinnerNamesString(carNames, positions, maxPos);
+    private static void printWinners(List<Car> cars) {
+        int maxPos = findMaxPosition(cars);
+        String winnerNames = createWinnerNamesString(cars, maxPos);
         System.out.println("최종 우승자 : " + winnerNames);
     }
 
-    private static int findMaxPosition(int[] positions) {
+    private static int findMaxPosition(List<Car> cars) {
         int maxPos = 0;
-        for (int position : positions) {
-            if (maxPos < position) {
-                maxPos = position;
+        for (Car car : cars) {
+            if (maxPos < car.getPosition()) {
+                maxPos = car.getPosition();
             }
         }
         return maxPos;
     }
 
-    private static String createWinnerNamesString(String[] carNames, int[] positions, int maxPos) {
+    private static String createWinnerNamesString(List<Car> cars, int maxPos) {
         String winnerNames = "";
-        for (int i = 0; i < carNames.length; i++) {
-            if (positions[i] == maxPos) {
+        for (Car car : cars) {
+            if (car.getPosition() == maxPos) {
                 if (!winnerNames.isEmpty()) {
                     winnerNames += ", ";
                 }
-                winnerNames += carNames[i];
+                winnerNames += car.getName();
             }
         }
         return winnerNames;
