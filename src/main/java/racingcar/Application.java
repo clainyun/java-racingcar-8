@@ -52,8 +52,9 @@ public class Application {
     private static int findMaxPosition(int[] positions) {
         int maxPos = 0;
         for (int position : positions) {
-            if (maxPos < position)
+            if (maxPos < position) {
                 maxPos = position;
+            }
         }
         return maxPos;
     }
