@@ -64,12 +64,17 @@ public class Application {
         String winnerNames = "";
         for (Car car : cars) {
             if (car.getPosition() == maxPos) {
-                if (!winnerNames.isEmpty()) {
-                    winnerNames += ", ";
-                }
-                winnerNames += car.getName();
+                winnerNames = addWinnerNameWithComma(winnerNames, car.getName());
             }
         }
+        return winnerNames;
+    }
+
+    private static String addWinnerNameWithComma(String winnerNames, String carName) {
+        if (!winnerNames.isEmpty()) {
+            winnerNames += ", ";
+        }
+        winnerNames += carName;
         return winnerNames;
     }
 }
