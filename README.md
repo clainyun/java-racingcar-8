@@ -35,6 +35,7 @@
 > 유효하지 않은 입력에 대해 IllegalArgumentException을 발생시키고 프로그램을 종료한다.
 - [x] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생
 - [x] 자동차 이름이 공백 또는 빈 문자열인 경우 IllegalArgumentException 발생
+- [x] 시도 횟수가 공백이거나 빈 문자열인 경우 IllegalArgumentException 발생
 - [x] 시도 횟수가 숫자가 아니거나 1 미만인 경우 IllegalArgumentException 발생
 - [x] 예외 발생 시 프로그램을 종료한다 (System.exit() 사용 금지)
 
