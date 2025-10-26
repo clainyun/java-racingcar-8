@@ -11,6 +11,14 @@ public class InputReader {
     public int readAttemptCount() {
         System.out.println("시도할 횟수는 몇 회인가요?");
         String input = Console.readLine();
-        return Integer.parseInt(input);
+        return validateAndParseInt(input);
+    }
+
+    private int validateAndParseInt(String input) {
+        int attemptCount = Integer.parseInt(input);
+        if (attemptCount < 1) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
+        return attemptCount;
     }
 }
