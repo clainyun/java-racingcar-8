@@ -58,3 +58,16 @@
 - [x] 예외 발생 시 `IllegalArgumentException` 이후 종료된다
 - [x] README의 모든 체크박스 항목이 구현 완료되었다
 - [x] 기능 단위로 커밋이 분리되어 있다
+
+## 리팩토링
+> 기능 구현 완료 후 코드 품질 향상을 위한 개선 작업 목록
+- [ ] 매직 넘버를 상수로 추출
+  - 목적: 의미를 명확히 하고 가독성을 높인다
+  - 대상:
+    - Car: MAX_NAME_LENGTH(5), MOVING_THRESHOLD(4)
+    - Application: MIN_RANDOM_VALUE(0), MAX_RANDOM_VALUE(9)
+- [ ] String += 연산을 StringBuilder로 최적화
+  - 목적: 불필요한 문자열 연산을 줄이고 성능을 개선한다
+  - 대상:  
+    - createWinnerNamesString 메서드
+    - addWinnerNameWithComma 메서드
