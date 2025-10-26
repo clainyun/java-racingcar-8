@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
+    private static final int MIN_RANDOM_VALUE = 0;
+    private static final int MAX_RANDOM_VALUE = 9;
+    
     public static void main(String[] args) {
         InputReader inputReader = new InputReader();
 
@@ -35,7 +38,7 @@ public class Application {
 
     private static void playOneRound(List<Car> cars) {
         for (Car car : cars) {
-            int randomValue = Randoms.pickNumberInRange(0, 9);
+            int randomValue = Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
             car.move(randomValue);
         }
     }
