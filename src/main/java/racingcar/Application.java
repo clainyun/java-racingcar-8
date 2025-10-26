@@ -8,7 +8,7 @@ import java.util.List;
 public class Application {
     private static final int MIN_RANDOM_VALUE = 0;
     private static final int MAX_RANDOM_VALUE = 9;
-    
+
     public static void main(String[] args) {
         InputReader inputReader = new InputReader();
 
