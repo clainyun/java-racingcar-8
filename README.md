@@ -66,8 +66,8 @@
   - 대상:
     - Car: MAX_NAME_LENGTH(5), MOVING_THRESHOLD(4)
     - Application: MIN_RANDOM_VALUE(0), MAX_RANDOM_VALUE(9)
-- [ ] String += 연산을 StringBuilder로 최적화
+- [x] String += 연산을 StringBuilder로 최적화
   - 목적: 불필요한 문자열 연산을 줄이고 성능을 개선한다
-  - 대상:  
+  - 대상:
     - createWinnerNamesString 메서드
     - addWinnerNameWithComma 메서드
