@@ -67,20 +67,18 @@ public class Application {
     }
 
     private static String createWinnerNamesString(List<Car> cars, int maxPos) {
-        String winnerNames = "";
+        StringBuilder winnerNames = new StringBuilder();
+        boolean isFirst = true;
+
         for (Car car : cars) {
             if (car.getPosition() == maxPos) {
-                winnerNames = addWinnerNameWithComma(winnerNames, car.getName());
+                if (!isFirst) {
+                    winnerNames.append(", ");
+                }
+                winnerNames.append(car.getName());
+                isFirst = false;
             }
         }
-        return winnerNames;
-    }
-
-    private static String addWinnerNameWithComma(String winnerNames, String carName) {
-        if (!winnerNames.isEmpty()) {
-            winnerNames += ", ";
-        }
-        winnerNames += carName;
-        return winnerNames;
+        return winnerNames.toString();
     }
 }
