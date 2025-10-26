@@ -12,9 +12,9 @@
 > 사용자로부터 경주에 필요한 정보를 입력받는다.
 - [x] 경주할 자동차의 이름을 입력받는다 (예: pobi,woni,jun)
 - [x] 자동차 이름을 쉼표로 분리한다
-- [ ] 자동차 이름이 5자 이하인지 검증한다
+- [x] 자동차 이름이 5자 이하인지 검증한다
 - [x] 시도할 횟수를 입력받는다
-- [ ] 시도할 횟수가 1 이상의 숫자인지 검증한다
+- [x] 시도할 횟수가 1 이상의 숫자인지 검증한다
 
 
 ### 3. 경주 진행
@@ -33,15 +33,15 @@
 
 ### 5. 예외 처리
 > 유효하지 않은 입력에 대해 IllegalArgumentException을 발생시키고 프로그램을 종료한다.
-- [ ] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생
-- [ ] 자동차 이름이 공백 또는 빈 문자열인 경우 IllegalArgumentException 발생
-- [ ] 시도 횟수가 숫자가 아니거나 1 미만인 경우 IllegalArgumentException 발생
-- [ ] 예외 발생 시 프로그램을 종료한다 (System.exit() 사용 금지)
+- [x] 자동차 이름이 5자 초과인 경우 IllegalArgumentException 발생
+- [x] 자동차 이름이 공백 또는 빈 문자열인 경우 IllegalArgumentException 발생
+- [x] 시도 횟수가 숫자가 아니거나 1 미만인 경우 IllegalArgumentException 발생
+- [x] 예외 발생 시 프로그램을 종료한다 (System.exit() 사용 금지)
 
 
 ### 6. 프로그래밍 요구 사항
 > 프로그래밍 구현 규칙을 따른다.
-- [] indent depth를 3이 넘지 않도록 구현한다
+- [x] indent depth를 3이 넘지 않도록 구현한다
 - [x] 3항 연산자는 사용하지 않는다
 - [x] 메서드는 한 가지 일만 수행하도록 구현한다 (SRP 준수)
 - [ ] JUnit 5와 AssertJ를 이용해 테스트를 작성한다
