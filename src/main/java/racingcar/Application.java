@@ -14,11 +14,14 @@ public class Application {
 
         List<Car> cars = createCars(carNamesInput);
 
+        System.out.println();
+        System.out.println("실행 결과");
+
         for (int i = 0; i < attemptCount; i++) {
             playOneRound(cars);
-            printRoundResult(cars); // 실행결과 출력
+            printRoundResult(cars);
         }
-        printWinners(cars); // 우승자 출력
+        printWinners(cars);
     }
 
     private static List<Car> createCars(String carNamesInput) {
